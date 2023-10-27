@@ -1,6 +1,6 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "ctype.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 double addition(double firstOperand, double secondOperand);
 double subtraction(double firstOperand, double secondOperand);
