@@ -13,7 +13,7 @@ int main()
 
         printf("-------------------- TOOL PACKAGE MINI PROJECT --------------------\n\n");
         printf("Select which tool do you want to use !\n");
-        printf("1.calculator\n2.converter\n3.calendar\n4.bill\n5.exit\n(if enter the wrong option program will refresh)\n\n");
+        printf("1.calculator\n2.unit converter\n3.calendar\n4.bill\n5.exit\n\n");
 
         printf("select option : ");
         scanf("%c", &input);
