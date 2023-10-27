@@ -4,6 +4,7 @@
     "*.c": "c",
     "stdio.h": "c",
     "stdlib.h": "c",
+    "ctype.h": "c",
     "string.h": "c"
   }
 }
