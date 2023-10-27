@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 double operand;
 char unit[4];
 char newUnit[3];
-// int n_unit;
-// int n_newUnit;
 int unitCheck();
 
 int lenghtPanel()
@@ -18,14 +17,16 @@ int lenghtPanel()
         printf("Enter your number : ");
         scanf("%lf", &operand);
 
-        printf("Unit (symbol) (use 1 for micro, use 2 for deka) : ");
+        printf("Unit (symbol) (use - for meter, use 1 for micro, use 2 for deka) : ");
         scanf("%s", unit);
 
-        printf("To unit (symbol) (use 1 for micro, use 2 for deka): ");
+        printf("To unit (symbol) (use - for meter, use 1 for micro, use 2 for deka): ");
         scanf("%s", newUnit);
 
         printf("old : %i\n", unitCheck(unit));
-        printf("new : %i", unitCheck(newUnit));
+        printf("new : %i\n", unitCheck(newUnit));
+
+        printf("Result : %.2lf", operand*(pow(10.0,(double) unitCheck(unit)-unitCheck(newUnit))));
         scanf("%s", &newUnit);
     }
 }
@@ -89,7 +90,7 @@ int unitCheck(char c_unit[4])
     case '2':
         return 1;
         break;
-    
+
     case 'h':
         return 2;
         break;
@@ -103,10 +104,38 @@ int unitCheck(char c_unit[4])
         break;
 
     case 'G':
-        return 2;
+        return 9;
         break;
 
-    // default:
-    //     printf("error");
+    case 'T':
+        return 12;
+        break;
+
+    case 'P':
+        return 15;
+        break;
+
+    case 'E':
+        return 18;
+        break;
+
+    case 'Z':
+        return 21;
+        break;
+
+    case 'Y':
+        return 24;
+        break;
+
+    case 'R':
+        return 27;
+        break;
+
+    case 'Q':
+        return 30;
+        break;
+
+    default:
+        printf("error");
     }
 }
