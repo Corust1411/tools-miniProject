@@ -1,9 +1,9 @@
-#include "stdio.h"
-#include "allConverter/temp_converter.c"
-#include "allConverter/area_converter.c"
-#include "allConverter/volumn_converter.c"
-#include "allConverter/weight_converter.c"
-#include "allConverter/lenghtConverter.c"
+#include <stdio.h>
+#include <allConverter/temp_converter.c>
+#include <allConverter/area_converter.c>
+#include <allConverter/volumn_converter.c>
+#include <allConverter/weight_converter.c>
+#include <allConverter/lenghtConverter.c>
 
 int main();
 
