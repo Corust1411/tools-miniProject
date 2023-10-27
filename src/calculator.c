@@ -21,7 +21,7 @@ void calculatorPanel()
     double firstOperand;
     system("clear");
     printf("---------- CALCULATOR TOOL ----------\n\n");
-    printf("How to use\n- enter your first operand\n- enter operator\n- enter second operand\n\n");
+    printf("How to use\n - enter your first operand\n - enter operator\n - enter second operand\n\n");
 
     printf("Enter your first operand : ");
     scanf("%lf", &firstOperand);
@@ -150,7 +150,7 @@ int logPanel()
     printf("Log entries:\n");
     for (int i = 0; i < logCount; i++)
     {
-        printf("result %d: %lf\n", i + 1, allResult[i]);
+        printf("result #%d : %lf\n", i + 1, allResult[i]);
     }
     printf("\nEnter any letter to back to calculator\n");
     scanf(" %c", &input);
