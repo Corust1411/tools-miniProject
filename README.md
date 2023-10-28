@@ -6,7 +6,7 @@
 
 ## demo VDO
 
-**Link for demo video:**
+**Link for demo video**
 https://youtu.be/qIoL9ial2hg
 
 ## Overview
