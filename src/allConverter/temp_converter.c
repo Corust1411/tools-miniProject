@@ -23,6 +23,10 @@ int temp_converterPanel()
     printf("Enter Temperature : ");
     scanf("%lf %s", &temp, &temp_unit_before);
 
+    if (temp_unit_before == 'C' || temp_unit_before == 'c')
+    {
+      temp_before = temp;
+    }
     if (temp_unit_before == 'K' || temp_unit_before == 'k')
     {
       temp_before = temp - 273;
@@ -38,15 +42,15 @@ int temp_converterPanel()
     refreshPanel();
     temperatureHeader();
 
-    if (temp_unit_after == 'C' || temp_unit_before == 'c')
+    if (temp_unit_after == 'C' || temp_unit_after == 'c')
     {
       temp_after = temp_before;
     }
-    if (temp_unit_after == 'K' || temp_unit_before == 'k')
+    if (temp_unit_after == 'K' || temp_unit_after == 'k')
     {
       temp_after = temp_before + 273;
     }
-    if (temp_unit_after == 'F' || temp_unit_before == 'f')
+    if (temp_unit_after == 'F' || temp_unit_after == 'f')
     {
       temp_after = ((9.0 / 5.0) * temp_before) + 32;
     }
