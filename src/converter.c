@@ -3,7 +3,7 @@
 #include "allConverter/area_converter.c"
 #include "allConverter/volumn_converter.c"
 #include "allConverter/weight_converter.c"
-#include "allConverter/lenghtConverter.c"
+#include "allConverter/length_converter.c"
 
 int main();
 void refreshPanel();
@@ -27,7 +27,7 @@ void converterPanel()
             temp_converterPanel();
             break;
         case '2':
-            lenghtPanel();
+            length_converterPanel();
             break;
         case '3':
             area_converterPanel();

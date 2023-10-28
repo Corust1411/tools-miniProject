@@ -3,47 +3,70 @@
 #include <string.h>
 #include <math.h>
 
-double operand;
-char unit[4];
+double number;
+char unit[3];
 char newUnit[3];
-int unitCheck();
 
-int lenghtPanel()
+int unitCheck();
+void lengthHeader();
+
+int length_converterPanel()
 {
     while (1)
     {
-        char menu;
-        system("clear");
-        printf("---------- LENGHT CONVERTER TOOL ----------\n\n");
-        printf("Enter your number : ");
-        scanf("%lf", &operand);
+        char input;
 
-        printf("Unit (symbol) (use - for meter, use 1 for micro, use 2 for deka) : ");
+        system("clear");
+        refreshPanel();
+        lengthHeader();
+        printf("Unit symbol (Metric system prefixes)\n");
+        printf("1.quecto (q)\t11.centi (c)\t21.exa (E)\n");
+        printf("2.ronto (r)\t12.deci (d)\t22.zetta (Z)\n");
+        printf("3.yocto (y)\t13.metre (-)\t23.yotta (Y)\n");
+        printf("4.zepto (z)\t14.deka (=)\t24.ronna (R)\n");
+        printf("5.atto (a)\t15.hecto (h)\t25.quetta (Q)\n");
+        printf("6.femto (f)\t16.kilo (k)\n");
+        printf("7.pico (p)\t17.mega (M)\n");
+        printf("8.nano (n)\t18.giga (G)\n");
+        printf("9.micro (.)\t19.tera (T)\n");
+        printf("10.milli (m)\t20.peta (P)\n\n");
+
+        printf("Enter number : ");
+        scanf("%lf", &number);
+
+        printf("Enter number's unit : ");
         scanf("%s", unit);
 
-        printf("To unit (symbol) (use - for meter, use 1 for micro, use 2 for deka): ");
+        printf("Enter unit to convert to : ");
         scanf("%s", newUnit);
 
-        printf("\nResult : %.2lf\n\n", operand * (pow(10.0, (double)unitCheck(unit) - unitCheck(newUnit))));
+        refreshPanel();
+        lengthHeader();
+        printf("\nResult : %lf\n\n", number * (pow(10.0, (double)unitCheck(unit) - (double)unitCheck(newUnit))));
 
         printf("1.use tool again (input 1)\n2.back to main menu (input 2)\n3.exit (input 3)\n\n");
         printf("select your option : ");
-        scanf("%s", &menu);
-        
-        if (menu == '1')
+        scanf("%s", &input);
+
+        if (input == '1')
         {
             continue;
         }
-        if (menu == '2')
+        if (input == '2')
         {
             main();
         }
-        if (menu == '3')
+        if (input == '3')
         {
             printf("program exited.");
             exit(0);
         }
     }
+}
+
+void lengthHeader()
+{
+    printf("-------------------- LENGHT CONVERTER TOOL --------------------\n\n");
 }
 
 int unitCheck(char c_unit[4])
@@ -82,7 +105,7 @@ int unitCheck(char c_unit[4])
         return -9;
         break;
 
-    case '1':
+    case '.':
         return -6;
         break;
 
@@ -102,7 +125,7 @@ int unitCheck(char c_unit[4])
         return 0;
         break;
 
-    case '2':
+    case '=':
         return 1;
         break;
 
