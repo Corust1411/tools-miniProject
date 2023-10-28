@@ -23,6 +23,11 @@ int temp_converterPanel()
     printf("Please Enter your Temperature : ");
     scanf("%lf %s", &temp, &temp_unit_before);
 
+    if (temp_unit_before == 'C')
+    {
+      temp_before = temp;
+    }
+
     if (temp_unit_before == 'K')
     {
       temp_before = temp - 273;
