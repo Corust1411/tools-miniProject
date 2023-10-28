@@ -4,6 +4,9 @@
 
 #define MAX_MEMBER 15
 
+int main();
+void billManagerHeader();
+
 struct Bill
 {
     char *billName;
@@ -21,8 +24,6 @@ struct MemberResult
     int billCount;
 };
 
-void refreshPanel();
-
 void billPanel()
 {
 
@@ -33,7 +34,7 @@ void billPanel()
     int memberResultCount = 0;
 
     refreshPanel();
-    printf("---------- BILL MANAGER TOOL ----------\n\n");
+    billManagerHeader();
     printf("How to use\n - enter number of bills\n - enter bill's detail (total price, member for the bill)\n\n");
     printf("Enter the number of bills : ");
     scanf("%d", &numBills);
@@ -87,7 +88,7 @@ void billPanel()
     }
 
     refreshPanel();
-    printf("---------- BILL MANAGER TOOL ----------\n\n");
+    billManagerHeader();
     printf("Each member's payment detail\n\n");
     for (int i = 0; i < memberResultCount; i++)
     {
@@ -108,19 +109,21 @@ void billPanel()
         free(bills[i].billName);
     }
 
-    printf("\n1.reset (input 1)\n2.back to main menu (input 2)\n3.exit (input 3)\n\n");
+    printf("\n1.back to main menu (input 1)\n2.exit (input 2)\n\n");
     printf("select your option : ");
     scanf("%s", &input);
-    switch (input)
+    if (input == '1')
     {
-    case '1':
-        printf("reset");
-        break;
-    case '2':
         main();
-        break;
-    case '3':
+    }
+    if (input == '2')
+    {
         printf("program exited.");
         exit(0);
     }
+}
+
+void billManagerHeader()
+{
+    printf("-------------------- BILL MANAGER TOOL --------------------\n\n");
 }
