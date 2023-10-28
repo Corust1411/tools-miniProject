@@ -12,6 +12,7 @@ int lenghtPanel()
 {
     while (1)
     {
+        char menu;
         system("clear");
         printf("---------- LENGHT CONVERTER TOOL ----------\n\n");
         printf("Enter your number : ");
@@ -23,11 +24,25 @@ int lenghtPanel()
         printf("To unit (symbol) (use - for meter, use 1 for micro, use 2 for deka): ");
         scanf("%s", newUnit);
 
-        printf("old : %i\n", unitCheck(unit));
-        printf("new : %i\n", unitCheck(newUnit));
+        printf("\nResult : %.2lf\n\n", operand * (pow(10.0, (double)unitCheck(unit) - unitCheck(newUnit))));
 
-        printf("Result : %.2lf", operand*(pow(10.0,(double) unitCheck(unit)-unitCheck(newUnit))));
-        scanf("%s", &newUnit);
+        printf("1.use tool again (input 1)\n2.back to main menu (input 2)\n3.exit (input 3)\n\n");
+        printf("select your option : ");
+        scanf("%s", &menu);
+        
+        if (menu == '1')
+        {
+            continue;
+        }
+        if (menu == '2')
+        {
+            main();
+        }
+        if (menu == '3')
+        {
+            printf("program exited.");
+            exit(0);
+        }
     }
 }
 
