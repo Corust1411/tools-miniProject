@@ -1,8 +1,16 @@
 # tools-package-miniProject
 
+## Project poster
+
 ![](./img/phycom-tools-miniProject.png)
 
-This is mini-project in Physical Programming Subject.
+## demo VDO
+
+**Link for demo video:**
+
+## Overview
+
+This is mini-project in Physical Computing Subject.
 This Program contains 4 main functions
 
 1. [calculator](##calculator)
@@ -10,12 +18,12 @@ This Program contains 4 main functions
 3. [calendar](##calendar)
 4. [bill manager](##bill-manager)
 
-## Calculator
+### Calculator
 
 Calculator tool contain functions to addition, subtraction, multiplication and division
 and also shown the previous result as history log
 
-## Unit converter
+### Unit converter
 
 Unit converter tool contain main 5 unit converter which is
 
@@ -33,11 +41,11 @@ these function contains unit symbols from metric systems prefixes and the calcul
 
 #### Weight unit converter
 
-## Calendar
+### Calendar
 
 Calendar tool contain function to see the calendar of that whole year by only put the year which you want to know.
 
-## Bill Manager
+### Bill Manager
 
 Bill Manager contain function to spread the bill by follow these steps
 
