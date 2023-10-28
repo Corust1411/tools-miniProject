@@ -6,14 +6,15 @@
 #include "allConverter/lenghtConverter.c"
 
 int main();
+void refreshPanel();
 
 void converterPanel()
 {
     while (1)
     {
-        system("clear");
         char input;
-
+        system("clear");
+        refreshPanel();
         printf("-------------------- UNIT CONVERSION TOOL --------------------\n\n");
         printf("Select which unit do you want to use !\n");
         printf("1.temperature unit converter\n2.length unit converter\n3.area unit converter\n4.volumn unit converter\n5.weight unit converter\n6.back to main menu\n\n");

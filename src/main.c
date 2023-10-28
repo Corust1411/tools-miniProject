@@ -5,6 +5,8 @@
 #include "calendar.c"
 #include "billManager.c"
 
+void refreshPanel();
+
 int main()
 {
     while (1)
@@ -35,6 +37,13 @@ int main()
         case '5':
             exit(0);
         }
+        printf("\n");
     }
     return 0;
+}
+
+void refreshPanel()
+{
+    printf("\n");
+    system("clear");
 }

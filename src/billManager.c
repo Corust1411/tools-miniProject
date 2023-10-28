@@ -33,6 +33,7 @@ void billPanel()
     int memberResultCount = 0;
 
     refreshPanel();
+    printf("---------- BILL MANAGER TOOL ----------\n\n");
     printf("How to use\n - enter number of bills\n - enter bill's detail (total price, member for the bill)\n\n");
     printf("Enter the number of bills : ");
     scanf("%d", &numBills);
@@ -86,6 +87,7 @@ void billPanel()
     }
 
     refreshPanel();
+    printf("---------- BILL MANAGER TOOL ----------\n\n");
     printf("Each member's payment detail\n\n");
     for (int i = 0; i < memberResultCount; i++)
     {
@@ -121,10 +123,4 @@ void billPanel()
         printf("program exited.");
         exit(0);
     }
-}
-
-void refreshPanel()
-{
-    system("clear");
-    printf("---------- BILL MANAGER TOOL ----------\n\n");
 }
