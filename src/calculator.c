@@ -9,6 +9,7 @@ double division(double firstOperand, double secondOperand);
 void addLog(double input);
 void resetLog();
 void refreshPanel();
+void calculatorHeader();
 int logPanel();
 int main();
 
@@ -20,9 +21,10 @@ int logCount;
 void calculatorPanel()
 {
     double firstOperand;
+
     system("clear");
     refreshPanel();
-    printf("---------- CALCULATOR TOOL ----------\n\n");
+    calculatorHeader();
     printf("How to use\n - enter your first operand\n - enter operator\n - enter second operand\n\n");
 
     printf("Enter your first operand : ");
@@ -32,28 +34,28 @@ void calculatorPanel()
     {
         system("clear");
         refreshPanel();
-        printf("\n---------- CALCULATOR TOOL ----------\n\n");
+        calculatorHeader();
 
         char input;
         double secondOperand, summary;
 
         printf("Current result : %.2lf\n\n", firstOperand);
-        printf("Choose which operator (+, -, *, /) or Choose other function (5, 6, 7)\n");
-        printf("1. addition (+)\n2. subtraction (-)\n3. multiplication (*)\n4. division (/)\n5. view log (input 5)\n6. back to main menu (input 6)\n7. exit program (input 7)\n\n");
+        printf("Choose which operator (+, -, *, /) or Choose other function (1, 2, 3)\n");
+        printf("1. addition (+)\n2. subtraction (-)\n3. multiplication (*)\n4. division (/)\n\n or use these feature\n1. view log (input 1)\n2. back to main menu (input 2)\n3. exit program (input 3)\n\n");
         printf("Enter your option : ");
         scanf(" %c", &input);
-        if (input == '5')
+        if (input == '1')
         {
             logPanel();
         }
-        if (input == '6')
+        if (input == '2')
         {
             resetLog();
             main();
         }
-        if (input == '7')
+        if (input == '3')
         {
-            printf("exit program.");
+            printf("program exited.");
             exit(0);
         }
         if (input == '+' || input == '-' || input == '*' || input == '/')
@@ -149,7 +151,7 @@ int logPanel()
     char input;
 
     system("clear");
-    printf("---------- CALCULATOR TOOL ----------\n\n");
+    calculatorHeader();
     printf("Log entries:\n");
     for (int i = 0; i < logCount; i++)
     {
@@ -161,4 +163,9 @@ int logPanel()
     {
         return 0;
     }
+}
+
+void calculatorHeader()
+{
+    printf("-------------------- CALCULATOR TOOL --------------------\n\n");
 }
