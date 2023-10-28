@@ -54,7 +54,7 @@ int temp_converterPanel()
     {
       temp_after = ((9.0 / 5.0) * temp_before) + 32;
     }
-    printf("Convert from : %.2lf %s\n", temp, temp_unit_before);
+    printf("Convert from : %.2lf %c\n", temp, temp_unit_before);
     printf("Result is : %.2lf %c\n\n", temp_after, temp_unit_after);
 
     printf("1.use tool again (input 1)\n2.back to main menu (input 2)\n3.exit (input 3)\n\n");

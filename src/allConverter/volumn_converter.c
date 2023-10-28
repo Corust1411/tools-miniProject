@@ -4,7 +4,7 @@
 #include <math.h>
 
 double operand;
-char unit[4];
+char unit[3];
 char newUnit[3];
 char input;
 
@@ -13,40 +13,51 @@ int unitVolumnCheck();
 
 void volumn_converterPanel()
 {
-  while (1)
+    while (1)
     {
         system("clear");
         refreshPanel();
         volumnHeader();
-        printf("Enter your number : ");
+        printf("Unit symbol (Metric system prefixes)\n");
+        printf("1.quecto (q)\t11.centi (c)\t21.exa (E)\n");
+        printf("2.ronto (r)\t12.deci (d)\t22.zetta (Z)\n");
+        printf("3.yocto (y)\t13.metre (-)\t23.yotta (Y)\n");
+        printf("4.zepto (z)\t14.deka (=)\t24.ronna (R)\n");
+        printf("5.atto (a)\t15.hecto (h)\t25.quetta (Q)\n");
+        printf("6.femto (f)\t16.kilo (k)\n");
+        printf("7.pico (p)\t17.mega (M)\n");
+        printf("8.nano (n)\t18.giga (G)\n");
+        printf("9.micro (.)\t19.tera (T)\n");
+        printf("10.milli (m)\t20.peta (P)\n\n");
+
+        printf("Enter number : ");
         scanf("%lf", &operand);
 
-        printf("\nUnit (symbol) (use - for meter, use 1 for micro, use 2 for deka) : ");
+        printf("Enter number's unit : ");
         scanf("%s", unit);
 
-        printf("\nTo unit (symbol) (use - for meter, use 1 for micro, use 2 for deka): ");
+        printf("Enter unit to convert to : ");
         scanf("%s", newUnit);
 
         refreshPanel();
         volumnHeader();
+        printf("Result : %lf\n\n", operand * (pow(10.0, (double)(unitVolumnCheck(unit) - unitVolumnCheck(newUnit)) * 3)));
 
-        printf("Result : %.2lf\n\n\n", operand*(pow(10.0,(double) (unitVolumnCheck(unit)-unitVolumnCheck(newUnit))*3)));
- 
         printf("\n1.use tool again (input 1)\n2.back to main menu (input 2)\n3.exit (input 3)\n\n");
         printf("select your option : ");
         scanf("%s", &input);
         if (input == '1')
         {
-          continue;
+            continue;
         }
         if (input == '2')
         {
-          main();
+            main();
         }
         if (input == '3')
         {
-          printf("program exited.");
-          exit(0);
+            printf("program exited.");
+            exit(0);
         }
     }
 }
@@ -162,5 +173,5 @@ int unitVolumnCheck(char c_unit[4])
 
 void volumnHeader()
 {
-  printf("---------- VOLUMN CONVERTER TOOL ----------\n\n\n");
+    printf("-------------------- VOLUMN CONVERTER TOOL --------------------\n\n\n");
 }
