@@ -2,21 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_MEMBER 15
-
-int main();
-void billManagerHeader();
+#define MAX_CUSTOMERS 15
 
 struct Bill
 {
     char *billName;
     float totalPrice;
-    char memberNames[MAX_MEMBER][50];
-    float memberTotals[MAX_MEMBER];
+    char memberName[MAX_CUSTOMERS][50];
+    float memberTotal[MAX_CUSTOMERS];
     int memberCount;
 };
 
-struct MemberResult
+struct memberResult
 {
     char *name;
     float totalPrice;
@@ -24,48 +21,56 @@ struct MemberResult
     int billCount;
 };
 
+int main();
+void billManagerHeader();
+void refreshPanel();
+
 void billPanel()
 {
-
-    char input;
     int numBills;
-    struct Bill bills[numBills];
-    struct MemberResult memberResult[MAX_MEMBER];
-    int memberResultCount = 0;
+    char input;
 
+    system("clear");
     refreshPanel();
     billManagerHeader();
-    printf("How to use\n - enter number of bills\n - enter bill's detail (total price, member for the bill)\n\n");
     printf("Enter the number of bills : ");
     scanf("%d", &numBills);
+
+    struct Bill bills[numBills];
 
     for (int i = 0; i < numBills; i++)
     {
         printf("Bill #%d:\n", i + 1);
+
         bills[i].billName = (char *)malloc(50 * sizeof(char));
         printf("Enter Bill Name : ");
         scanf(" %[^\n]s", bills[i].billName);
 
-        printf("Enter Total Price : ");
+        printf("Enter total Price : ");
         scanf("%f", &bills[i].totalPrice);
 
-        printf("Enter the number of member for this bill: ");
+        printf("Enter the number of member for this bill : ");
         scanf("%d", &bills[i].memberCount);
 
         for (int j = 0; j < bills[i].memberCount; j++)
         {
-            printf("Member's name #%d : ", j + 1);
-            scanf(" %[^\n]s", bills[i].memberNames[j]);
+            printf("Member #%d Name: ", j + 1);
+            scanf(" %[^\n]s", bills[i].memberName[j]);
         }
     }
+
+    struct memberResult memberResult[MAX_CUSTOMERS];
+    int memberResultCount = 0;
+
     for (int i = 0; i < numBills; i++)
     {
         for (int j = 0; j < bills[i].memberCount; j++)
         {
             int found = 0;
+
             for (int k = 0; k < memberResultCount; k++)
             {
-                if (strcmp(bills[i].memberNames[j], memberResult[k].name) == 0)
+                if (strcmp(bills[i].memberName[j], memberResult[k].name) == 0)
                 {
                     memberResult[k].totalPrice += bills[i].totalPrice / bills[i].memberCount;
                     memberResult[k].billNames = (char **)realloc(memberResult[k].billNames, (memberResult[k].billCount + 1) * sizeof(char *));
@@ -75,9 +80,10 @@ void billPanel()
                     break;
                 }
             }
+
             if (!found)
             {
-                memberResult[memberResultCount].name = strdup(bills[i].memberNames[j]);
+                memberResult[memberResultCount].name = strdup(bills[i].memberName[j]);
                 memberResult[memberResultCount].totalPrice = bills[i].totalPrice / bills[i].memberCount;
                 memberResult[memberResultCount].billNames = (char **)malloc(sizeof(char *));
                 memberResult[memberResultCount].billNames[0] = strdup(bills[i].billName);
@@ -92,7 +98,7 @@ void billPanel()
     printf("Each member's payment detail\n\n");
     for (int i = 0; i < memberResultCount; i++)
     {
-        printf("Customer Name : %s\n", memberResult[i].name);
+        printf("Member's Name : %s\n", memberResult[i].name);
         printf("Total price : %.2f\n", memberResult[i].totalPrice);
         printf("List of bills\n");
         for (int j = 0; j < memberResult[i].billCount; j++)
